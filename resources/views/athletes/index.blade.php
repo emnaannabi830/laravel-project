@@ -21,6 +21,7 @@
                     <td>{{ $athlete->age }}</td>
                     <td>{{ $athlete->coach->name }}</td>
                     <td>
+                        <a href="{{ route('athletes.show', $athlete->id) }}" class="btn btn-info">View</a>
                         <a href="{{ route('athletes.edit', $athlete->id) }}" class="btn btn-warning">Edit</a>
                         <form action="{{ route('athletes.destroy', $athlete->id) }}" method="POST" style="display:inline;">
                             @csrf
@@ -32,4 +33,7 @@
             @endforeach
         </tbody>
     </table>
+    <div class="d-flex justify-content-center">
+        {{ $athletes->links('pagination::bootstrap-5') }}
+    </div>
 @endsection

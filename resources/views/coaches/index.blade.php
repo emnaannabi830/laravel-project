@@ -19,6 +19,7 @@
                     <td>{{ $coach->name }}</td>
                     <td>{{ $coach->email }}</td>
                     <td>
+                        <a href="{{ route('coaches.show', $coach->id) }}" class="btn btn-info">View</a>
                         <a href="{{ route('coaches.edit', $coach->id) }}" class="btn btn-warning">Edit</a>
                         <form action="{{ route('coaches.destroy', $coach->id) }}" method="POST" style="display:inline;">
                             @csrf
@@ -30,4 +31,7 @@
             @endforeach
         </tbody>
     </table>
+    <div class="d-flex justify-content-center">
+        {{ $coaches->links('pagination::bootstrap-5') }}
+    </div>
 @endsection

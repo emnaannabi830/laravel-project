@@ -11,8 +11,12 @@ class AthleteController extends Controller
 {
     public function index()
     {
-        $athletes = Athlete::with('coach')->get();
+        $athletes = Athlete::paginate(10);
         return view('athletes.index', compact('athletes'));
+    }
+    public function show(Athlete $athlete)
+    {
+        return view('athletes.show', compact('athlete'));
     }
 
     public function create()
