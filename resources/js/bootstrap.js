@@ -6,6 +6,8 @@
 
 import axios from 'axios';
 window.axios = axios;
+// resources/js/bootstrap.js
+import 'bootstrap';
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
